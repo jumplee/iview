@@ -61,7 +61,7 @@
                         </template>
                     </div>
                 </th>
-                
+
                 <th v-if="$parent.showVerticalScrollBar && rowIndex===0" :class='scrollBarCellClass()' :rowspan="headRows.length"></th>
             </tr>
         </thead>
@@ -185,12 +185,10 @@
                 const column = this.columns.find(item => item._index === index);
                 if (column.sortable) {
                     const type = column._sortType;
-                    if (type === 'normal') {
+                    if (type === 'desc') {
                         this.handleSort(index, 'asc');
-                    } else if (type === 'asc') {
-                        this.handleSort(index, 'desc');
                     } else {
-                        this.handleSort(index, 'normal');
+                        this.handleSort(index, 'desc');
                     }
                 }
             },
